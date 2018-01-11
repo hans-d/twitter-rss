@@ -19,8 +19,6 @@ RUN mkdir -p htag && touch htag/htag.txt
 
 # Add code from the current checkout
 ADD . /home/asta/twitter-rss
-# Alternatively, checkout the current master version from Github:
-# RUN git clone git://github.com/Astalaseven/twitter-rss.git /home/asta/twitter-rss
 
 # Expose port, set volume & start command
 EXPOSE 5000
