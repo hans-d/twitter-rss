@@ -105,8 +105,8 @@ Explanations on how to get docker working are here: http://www.docker.io/getting
 
 After installing docker, you can build the docker image and run it:
 ```
-sudo docker build -t twitter-rss .
-sudo docker run -d -p 5000:5000 twitter-rss
+docker build -t twitter-rss .
+docker run -d -p 5000:5000 --name twitter-rss twitter-rss
 ```
 
 Or use [fig] [4]:
