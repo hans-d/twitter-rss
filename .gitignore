@@ -4,7 +4,7 @@ venv/
 
 # IDE stuff
 .idea/
+*.un~
 
 # app stuff
 data/
-local_settings.ini
