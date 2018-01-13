@@ -1,26 +1,17 @@
 FROM ubuntu:latest
 
 # Install prerequisites
-RUN sed -i "s/main/main universe/" /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get -y install git python-pip gunicorn supervisor
+RUN apt-get -y install python-pip
+RUN pip install flask arrow requests
 
 # Install pip requirements
-RUN mkdir -p /home/asta/twitter-rss
-WORKDIR /home/asta/twitter-rss
-ADD requirements.txt /home/asta/twitter-rss/requirements.txt
-RUN pip install -r requirements.txt
+RUN mkdir -p /app/twitter-rss
+WORKDIR /app/twitter-rss
 
-# Create data directories
-RUN mkdir -p /var/www/twitter-rss
-WORKDIR /var/www/twitter-rss
-RUN mkdir -p user && touch user/user.txt
-RUN mkdir -p htag && touch htag/htag.txt
-
-# Add code from the current checkout
-ADD . /home/asta/twitter-rss
+ADD docker /app/twitter-rss/
 
 # Expose port, set volume & start command
 EXPOSE 5000
-VOLUME /var/www/twitter-rss
-CMD supervisord -n -c /home/asta/twitter-rss/supervisord.conf
+# VOLUME /var/www/twitter-rss
+CMD tail -f /dev/null
