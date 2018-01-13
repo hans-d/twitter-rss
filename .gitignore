@@ -5,6 +5,7 @@ venv/
 # IDE stuff
 .idea/
 *.un~
+*.swp
 
 # app stuff
 data/
