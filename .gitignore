@@ -6,6 +6,3 @@ venv/
 .idea/
 *.un~
 *.swp
-
-# app stuff
-data/
