@@ -13,5 +13,5 @@ ADD docker /app/twitter-rss/
 
 # Expose port, set volume & start command
 EXPOSE 5000
-# VOLUME /var/www/twitter-rss
-CMD tail -f /dev/null
+WORKDIR /app/twitter-rss/webserver
+CMD python -B server.py
